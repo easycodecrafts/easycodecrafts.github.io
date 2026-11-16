@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ChronoGuess</title>
+<meta name="description" content="ChronoGuess – Le jeu de devinettes entre amis. Disponible sur l'App Store et Google Play.">
+<style>
+  body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+       background:#FAF5EF;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1E1E1E;text-align:center}
+  .card{background:#fff;border:4px solid #1E1E1E;border-radius:24px;box-shadow:6px 6px 0 #1E1E1E;padding:32px 24px;margin:16px;max-width:360px;width:100%}
+  h1{margin:0 0 4px;font-size:32px}
+  p{margin:0 0 24px;font-weight:600;color:#555}
+  a.btn{display:block;margin:12px 0;padding:16px;border:3px solid #1E1E1E;border-radius:16px;box-shadow:4px 4px 0 #1E1E1E;
+        font-weight:800;font-size:18px;text-decoration:none;color:#1E1E1E}
+  .ios{background:#FFD000}
+  .android{background:#2ECC9A}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>⏱️ ChronoGuess</h1>
+  <p id="tagline">Le jeu de devinettes entre amis !</p>
+  <a class="btn ios" id="ios" href="https://apps.apple.com/app/id6828837877">🍎 App Store</a>
+  <a class="btn android" id="android" href="https://play.google.com/store/apps/details?id=com.easycodecrafts.chronoguess">▶️ Google Play</a>
+</div>
+<script>
+  var ua = navigator.userAgent || "";
+  var IOS = "https://apps.apple.com/app/id6828837877";
+  var ANDROID = "https://play.google.com/store/apps/details?id=com.easycodecrafts.chronoguess";
+  var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (isIOS) { window.location.replace(IOS); }
+  else if (/Android/i.test(ua)) { window.location.replace(ANDROID); }
+  if (!/^fr/i.test(navigator.language || "")) {
+    document.documentElement.lang = "en";
+    document.getElementById("tagline").textContent = "The guessing game for friends!";
+  }
+</script>
+</body>
+</html>
